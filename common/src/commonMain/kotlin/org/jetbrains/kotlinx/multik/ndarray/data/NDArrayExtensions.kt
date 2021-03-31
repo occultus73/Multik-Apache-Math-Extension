@@ -9,38 +9,42 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.sqrt
 
+// For Apache Commons Math translation.
 typealias RealMatrix = MultiArray<Double, D2>
 typealias RealVector = MultiArray<Double, D1>
 
-fun RealMatrix.repeatD2(repeat: Int): NDArray<Double, D3> {
-    val copy = List(shape[0]) { this[it].toList() }
-    return mk.ndarray(List(repeat) { copy })
-}
-
+// Determines if Matrix is a square.
 fun RealMatrix.isSquare(): Boolean {
     val nRows = shape[0]
     val nCols = shape[1]
     return nRows == nCols
 }
 
+// Returns number of rows in a Matrix
 fun RealMatrix.getRowDimension() = shape[0]
 
+// Returns number of columns in Matrix
 fun RealMatrix.getColumnDimension() = shape[1]
 
+// Return Matrix as an array of double arrays (useful for manual modification).
 fun RealMatrix.getData(): Array<DoubleArray> {
     return List(shape[0]) { this[it].toList() }.run {
         Array(size) { this[it].toDoubleArray() }
     }
 }
 
+// Return Vector as a double array.
 fun RealVector.getData() = data.getDoubleArray()
 
+// Convert an array of double arrays into an ND array (Real Matrix).
 fun Array<DoubleArray>.toNDArray(): NDArray<Double, D2> {
     return mk.ndarray(List(size) { this[it].toList().map { d -> if (d == -0.0) 0.0 else d } })
 }
 
+// Convert a double array into an ND array (Real Vector)
 fun DoubleArray.toNDArray() = mk.ndarray(this)
 
+// Extract a certain area of a matrix to make another matrix.
 fun RealMatrix.getSubMatrix(
     startRow: Int,
     endRow: Int,
@@ -58,6 +62,7 @@ fun RealMatrix.getSubMatrix(
     })
 }
 
+// Extract a certain column from a matrix.
 fun RealMatrix?.getColumnVector(index: Int): RealVector {
     if (this == null) throw NullPointerException("getColumnVector called on null matrix")
     return getData().let { array ->
@@ -65,6 +70,7 @@ fun RealMatrix?.getColumnVector(index: Int): RealVector {
     }
 }
 
+// Set a certain column in a matrix. Return new matrix.
 fun RealMatrix?.setColumnVector(
     index: Int,
     columnVector: RealVector
@@ -79,6 +85,7 @@ fun RealMatrix?.setColumnVector(
     }
 }
 
+// Set a certain column in a matrix and return new matrix.
 fun RealMatrix?.setRowVector(
     index: Int,
     rowVector: RealVector
@@ -93,6 +100,7 @@ fun RealMatrix?.setRowVector(
     }
 }
 
+// Create a diagonal matrix from a given double array.
 fun mk.createRealDiagonalMatrix(diagonal: DoubleArray): RealMatrix {
     val m = empty<Double, D2>(diagonal.size, diagonal.size).getData()
     for (i in diagonal.indices) {
@@ -101,6 +109,7 @@ fun mk.createRealDiagonalMatrix(diagonal: DoubleArray): RealMatrix {
     return m.toNDArray()
 }
 
+// The Apache "operate" RealMatrix method, rather too difficult to succinctly explain here.
 fun RealMatrix.operate(v: RealVector): RealVector {
     val nRows: Int = this.getRowDimension()
     val nCols: Int = this.getColumnDimension()
@@ -119,6 +128,7 @@ fun RealMatrix.operate(v: RealVector): RealVector {
     return out.toNDArray()
 }
 
+// Returns the norm value of a matrix.
 @JvmName("getNormRealMatrix")
 fun RealMatrix.getNorm(): Double {
     /** Sum of absolute values on one column.  */
@@ -141,6 +151,7 @@ fun RealMatrix.getNorm(): Double {
     return maxColSum
 }
 
+// Returns the norm value of a vector.
 @JvmName("getNormRealVector")
 fun RealVector.getNorm(): Double {
     var sum = 0.0
