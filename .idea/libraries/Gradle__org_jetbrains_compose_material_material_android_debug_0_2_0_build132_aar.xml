@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.compose.material:material-android-debug:0.2.0-build132@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/592f538708d7f14f9ba62eea6996e40d/material-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/592f538708d7f14f9ba62eea6996e40d/material-debug/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-android-debug/0.2.0-build132/424c27d62155d57fc1a78992c951cb8f939560ae/material-android-debug-0.2.0-build132-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

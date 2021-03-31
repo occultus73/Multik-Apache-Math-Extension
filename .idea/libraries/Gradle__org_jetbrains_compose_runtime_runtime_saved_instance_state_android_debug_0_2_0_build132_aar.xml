@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.compose.runtime:runtime-saved-instance-state-android-debug:0.2.0-build132@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/96238330107485b65f34d0e1b8a77e50/runtime-saved-instance-state-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/96238330107485b65f34d0e1b8a77e50/runtime-saved-instance-state-debug/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.compose.runtime/runtime-saved-instance-state-android-debug/0.2.0-build132/2146847dccf54d4b33950800a3622ab08bea3fae/runtime-saved-instance-state-android-debug-0.2.0-build132-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

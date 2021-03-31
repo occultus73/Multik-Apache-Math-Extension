@@ -1,0 +1,5 @@
+# Project exclude paths
+/.gradle/
+/common/build/
+/common/build/intermediates/javac/debug/classes/
+/desktop/build/
